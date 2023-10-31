@@ -90,6 +90,7 @@
         ];
         let score = 0;
         let respostaCorreta = null;
+        let perguntasFeitas = 0;
 
         const perguntaElement = document.getElementById("pergunta");
         const imgElement = document.getElementById("imagem");
@@ -97,7 +98,7 @@
         const feedbackElement = document.getElementById("feedback");
 
         function fazerPergunta() {
-            if (imagens.length > 0) {
+            if (imagens.length > 0 && perguntasFeitas < 20) {
                 const indice = Math.floor(Math.random() * imagens.length);
                 const urlImagem = imagens.splice(indice, 1)[0];
                 respostaCorreta = respostas.splice(indice, 1)[0];
@@ -106,6 +107,7 @@
                 imgElement.src = urlImagem;
                 respostaInput.value = "";
                 feedbackElement.textContent = "";
+                perguntasFeitas++;
             } else {
                 alert("Fim de jogo! Seu score foi: " + score);
                 jogarNovamente()
@@ -195,6 +197,7 @@
                 ]
                     score = 0;
                     respostaCorreta = null;
+                    perguntasFeitas = 0;
                     fazerPergunta();
         }
 
@@ -203,7 +206,7 @@
         }
 
         function proximaPergunta() {
-            setTimeout(fazerPergunta, 800);
+            setTimeout(fazerPergunta, 500);
         }
 
         function jogarNovamente(){
