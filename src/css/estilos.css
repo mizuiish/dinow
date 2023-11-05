@@ -1,10 +1,60 @@
+body {
+    display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+}
+
 #pergunta {
     font-size: 24px;
+    margin: 10px;
 }
 #imagem {
-    max-width: 400px;
+    max-width: 100%;
     max-height: 400px;
+    margin: 10px;
+    padding: 10px 300px;
+    background-color: black;  
+    
 }
+/*.imagem-container{ 
+    width: 100%;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
 #resposta {
     font-size: 24px;
+    margin: 10px;
 }
+
+
+.acertou {
+    animation: piscar-verde 1s 2;
+  }
+  
+  .errou {
+    animation: piscar-vermelho 1s 2;
+    background-color: red;
+  }
+  
+  @keyframes piscar-verde {
+    0%, 100% {
+      background-color: lawngreen;
+    }
+    50% {
+      background-color: black;
+    }
+  }
+  
+  @keyframes piscar-vermelho {
+    0%, 100% {
+      background-color: red;
+    }
+    50% {
+      background-color: black;
+    }
+  }
